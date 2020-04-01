@@ -189,6 +189,9 @@ public class CoreCardIoPlugin implements MethodCallHandler, ActivityResultListen
                 response.put("expiryYear", scanResult.expiryYear);
                 response.put("cvv", scanResult.cvv);
                 response.put("postalCode", scanResult.postalCode);
+                if (pendingResult == null) {
+                    return false;
+                }
                 pendingResult.success(response);
             } else {
                 pendingResult.success(null);
