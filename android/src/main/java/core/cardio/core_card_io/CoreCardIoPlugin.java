@@ -194,6 +194,9 @@ public class CoreCardIoPlugin implements MethodCallHandler, ActivityResultListen
                 }
                 pendingResult.success(response);
             } else {
+                if (pendingResult == null) {
+                    return false;
+                }
                 pendingResult.success(null);
             }
             pendingResult = null;
